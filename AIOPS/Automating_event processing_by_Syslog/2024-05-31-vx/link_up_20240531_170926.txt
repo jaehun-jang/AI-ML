@@ -1,0 +1,29 @@
+Event: link_up
+Time: 2024-05-31 17:09:31
+Log Message: <181> 2024-03-12 02:54:33 GMT 192.168.0.201 1/1 NOT INF interface is up with 10000 Mbps
+CLI Output: intf(type)    admin   link    nego    speed   duplex  fault   link-cnt
+----------------------------------------------------------------------
+1/1  (xe)     en      up      off     10000   full    normal  33
+----------------------------------------------------------------------
+Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 00, bytes 00, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 00 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 00, bytes 00, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+ configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+192.168.0.201(config)#  interface 1/1
+192.168.0.201(config-if)# shutdown
+192.168.0.201(config-if)#  end
+192.168.0.201# 
+

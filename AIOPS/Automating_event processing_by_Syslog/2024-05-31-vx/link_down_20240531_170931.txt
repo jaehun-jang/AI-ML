@@ -1,0 +1,7 @@
+Event: link_down
+Time: 2024-05-31 17:09:35
+Log Message: <181> 2024-03-12 02:54:39 GMT 192.168.0.201 1/1 NOT INF interface is down.
+CLI Output: intf(type)    admin   link    nego    speed   duplex  fault   link-cnt
+----------------------------------------------------------------------
+1/1  (xe)     dis     down    off     10000   full    -       34
+
