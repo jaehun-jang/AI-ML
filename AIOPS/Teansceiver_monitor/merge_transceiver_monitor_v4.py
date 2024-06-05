@@ -87,6 +87,10 @@ def write_to_csv(filename, data):
     df = pd.DataFrame([data])
     df.to_csv(filename, mode='a', header=not pd.io.common.file_exists(filename), index=False)
 
+    # CSV 파일로 저장된 후 network_state['link_event'] 초기화
+    with network_state_lock:
+        network_state['link_event'] = 0
+
 def execute_cli_command(child, commands, cmd_type):
     try:
         outputs = []
@@ -106,7 +110,8 @@ def execute_cli_command(child, commands, cmd_type):
 
 def handle_event(event_type, message, dev_ip_addr, interface=None):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    file_base_name = f"{event_type}_{timestamp}"
+    file_base_name = f"{event_type}"
+    # file_base_name = f"{event_type}_{timestamp}"
     
     get_commands = []
     set_commands = []
@@ -119,23 +124,16 @@ def handle_event(event_type, message, dev_ip_addr, interface=None):
             f'show interface status {interface}',
             f'show interface {interface}'
         ]
-        set_commands = [
-            f'interface {interface}',
-            'no shutdown'
-        ]
+        set_commands = []
+
     elif event_type == 'link_down':
         print(f"Link Down detected on interface {interface}, executing CLI command.")
         with network_state_lock:
             network_state['link_status'] = 'down'
             network_state['link_event'] += 1
         get_commands = [f'show interface status {interface}']
-        set_commands = [
-            f'interface {interface}',
-            'shutdown'
-        ]
-    elif event_type == 'cpu_load':
-        print(f"High CPU load detected, executing CLI command.")
-        get_commands = ['show processes cpu']
+        set_commands = []
+
     else:
         print("Unhandled event type.")
         return
@@ -154,30 +152,35 @@ def handle_event(event_type, message, dev_ip_addr, interface=None):
 def save_log_to_text_file(file_base_name, event_type, message, output):
     try:
         with open(f'{file_base_name}.txt', 'a') as txt_file:
-            txt_file.write(f"Event: {event_type}\n")
+            txt_file.write(f"Event: {event_type} ")
             txt_file.write(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
             txt_file.write(f"Log Message: {message}\n")
-            txt_file.write(f"CLI Output: {output}\n\n")
+            txt_file.write(f"CLI Output: {output}\n")
+            txt_file.write("-" * 70 + "\n") 
         print(f"Log saved to {file_base_name}.txt")
     except Exception as e:
         print(f"Error saving log to text file: {e}")
 
-def save_logs_to_csv():
+def save_logs_to_csv(valid_logs):
+    if valid_logs:
+        df = pd.DataFrame(valid_logs)
+        df = df.apply(lambda row: preprocess_log(row['raw_message']), axis=1, result_type='expand')
+
+        # Add "'" to process column to display interface number correctly 
+        if 'process' in df.columns:
+            df['process'] = df['process'].apply(lambda x: f"'{x}" if pd.notna(x) else x)
+
+        df.to_csv('syslog_data.csv', mode='a', header=False, index=False)
+        print("Logs saved to syslog_data.csv")
+
+def preprocess_log_and_save_logs_to_csv():
     global log_data
     while True:
         if log_data:
             # To check log data format
             valid_logs = [log for log in log_data if preprocess_log(log['raw_message']) is not None]
-            if valid_logs:
-                df = pd.DataFrame(valid_logs)
-                df = df.apply(lambda row: preprocess_log(row['raw_message']), axis=1, result_type='expand')
-
-                # Add "'" to process column to display interface number correctly 
-                if 'process' in df.columns:
-                    df['process'] = df['process'].apply(lambda x: f"'{x}" if pd.notna(x) else x)
-
-                df.to_csv('syslog_data.csv', mode='a', header=False, index=False)
-                print("Logs saved to syslog_data.csv")
+            # log를 csv file로 저장한다.
+            # save_logs_to_csv(valid_logs)
             log_data = []
         time.sleep(300)  # 5분 간격으로 실행
 
@@ -255,10 +258,11 @@ if __name__ == "__main__":
     HOST = pyautogui.prompt("ENTER THE IP ADDRESS: ", 'START AUTOMATION SERVER', default='127.0.0.1')
     
     # save_logs_to_csv 함수 스레딩으로 실행
-    threading.Thread(target=save_logs_to_csv, daemon=True).start()
+    threading.Thread(target=preprocess_log_and_save_logs_to_csv, daemon=True).start()
 
     # read_cli_and_write_to_csv 함수 스레딩으로 실행
     m_box_ip = "192.168.0.201"
+    time.sleep(60)  # 1분 후 실행
     threading.Thread(target=read_cli_and_write_to_csv, args=(m_box_ip,), daemon=True).start()
 
     try:
