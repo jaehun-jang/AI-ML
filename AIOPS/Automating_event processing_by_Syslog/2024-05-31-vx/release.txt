@@ -1,0 +1,10 @@
+
+syslog_server_netmiko_v4.py
+->Interface search field 변경
+
+
+syslog_server_netmiko_v5.py
+-> Event Write 기능 추가
+
+syslog_server_netmiko_v5.py
+-> Event 발생시 log및 cli결과도 log file에 저장하도록 변경.
