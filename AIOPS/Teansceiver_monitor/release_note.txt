@@ -1,0 +1,8 @@
+merge_transceiver_monitor_MLv1.3.py
+Train data csv로 저장하고, 에측할때 해당 filw을 불러서 사용 하도록 수정.
+
+merge_transceiver_monitor_MLv1.4.py
+probabilities의 급격한 변화에 따른 평활화 적용
+
+merge_transceiver_monitor_MLv1.6.py
+ML 랜덤포레스트에 하이퍼 파라미터 추가 및 앙상블 구성

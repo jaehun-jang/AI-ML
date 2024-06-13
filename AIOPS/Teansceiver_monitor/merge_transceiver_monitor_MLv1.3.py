@@ -320,9 +320,9 @@ def train_model(data):
     # 예제 데이터를 data에 추가
     example_data = [
         {'Tx Power (dBm)': -1.0, 'Rx Power (dBm)': -2.0, 'FCS Error': 0, 'Link Status': 'up'},
-        {'Tx Power (dBm)': -10.0, 'Rx Power (dBm)': -12.0, 'FCS Error': 100, 'Link Status': 'down'},
+        {'Tx Power (dBm)': -10.0, 'Rx Power (dBm)': -20.0, 'FCS Error': 100, 'Link Status': 'down'},
         {'Tx Power (dBm)': -2.0, 'Rx Power (dBm)': -3.0, 'FCS Error': 1, 'Link Status': 'up'},
-        {'Tx Power (dBm)': -8.0, 'Rx Power (dBm)': -9.0, 'FCS Error': 150, 'Link Status': 'down'},
+        {'Tx Power (dBm)': -8.0, 'Rx Power (dBm)': -17.0, 'FCS Error': 150, 'Link Status': 'down'},
         # 추가 데이터...
     ]
 
@@ -341,11 +341,36 @@ def train_model(data):
         model.fit(features, target)
         print("[DEBUG] Training model with data:", data)
         model_trained = True
+        
+        # 학습 데이터를 CSV 파일로 저장
+        df.to_csv('training_data.csv', index=False)
+        print("Training data saved to training_data.csv")    
+                
         return True
     else:
         print("[DEBUG] Not enough data to train. Current data count:", len(data))
         return False
 
+def load_training_data():
+    global model, model_trained
+    
+    try:
+        df = pd.read_csv('training_data.csv')
+        features = df[['Tx Power (dBm)', 'Rx Power (dBm)', 'FCS Error']].values
+        target = (df['Link Status'] == 'down').astype(int).values
+
+        if len(np.unique(target)) < 2:
+            print("[ERROR] Loaded training data does not contain both classes.")
+            return False
+
+        model.fit(features, target)
+        print("[DEBUG] Loaded training data and trained model.")
+        model_trained = True
+        return True
+    except Exception as e:
+        print(f"[ERROR] Failed to load training data: {e}")
+        return False
+    
 def predict_link_down(results):
     global model
 
@@ -396,6 +421,9 @@ if __name__ == "__main__":
 
     # Interfac, Transceiver 및 Syslog Link Up/Down 정보를 바탕으로 모델 학습 시작
     threading.Thread(target=collect_and_train, daemon=True).start()
+
+    # 기존 학습 데이터 불러오기
+    load_training_data()
 
     try:
     # Syslog Server 시작 및 LOG 데이터 수집 및 저장(log_data[]). 

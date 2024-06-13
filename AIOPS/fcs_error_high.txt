@@ -1,0 +1,1311 @@
+Event: fcs_error_high Time: 2024-06-13 13:01:45
+Log Message: FCS Error above threshold: 34968
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 06785977, bytes 5396880671, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 036773 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 06823911, bytes 5398684805, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:02:47
+Log Message: FCS Error above threshold: 49151
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09440579, bytes 7507871953, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 051018 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09492937, bytes 7508552093, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:03:49
+Log Message: FCS Error above threshold: 49586
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09198430, bytes 7312557553, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 049586 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09249257, bytes 7315033269, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:04:51
+Log Message: FCS Error above threshold: 51485
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09286605, bytes 7384277830, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 051485 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09339385, bytes 7387580495, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:05:52
+Log Message: FCS Error above threshold: 50023
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09388530, bytes 7467247171, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 051906 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09441842, bytes 7468809402, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:08:09
+Log Message: FCS Error above threshold: 109596
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 020744538, bytes 16492854265, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0111441 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 020859186, bytes 16499514255, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:09:10
+Log Message: FCS Error above threshold: 50470
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09373735, bytes 7453556768, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 052367 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09427542, bytes 7459021239, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:10:12
+Log Message: FCS Error above threshold: 50911
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09124963, bytes 7259137504, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 050911 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09177262, bytes 7259105155, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:11:14
+Log Message: FCS Error above threshold: 51058
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09221885, bytes 7333911544, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 051058 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09274360, bytes 7336091375, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:12:16
+Log Message: FCS Error above threshold: 49704
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09315676, bytes 7407853562, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 051607 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09368740, bytes 7411232827, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:13:17
+Log Message: FCS Error above threshold: 49828
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09408843, bytes 7482922564, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 051721 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09461907, bytes 7485013152, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:14:19
+Log Message: FCS Error above threshold: 49138
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09168085, bytes 7291155680, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 049138 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09218668, bytes 7293601501, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:15:21
+Log Message: FCS Error above threshold: 50468
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09261308, bytes 7368317228, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 050468 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09313172, bytes 7366913424, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:16:22
+Log Message: FCS Error above threshold: 48580
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09361818, bytes 7442642243, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 050461 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09413689, bytes 7447212314, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:17:24
+Log Message: FCS Error above threshold: 49310
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09113889, bytes 7246184124, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 049310 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09164565, bytes 7247401245, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:18:26
+Log Message: FCS Error above threshold: 49790
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09211567, bytes 7325239542, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 049790 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09262780, bytes 7326990919, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:19:28
+Log Message: FCS Error above threshold: 48199
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09308541, bytes 7399080381, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 050081 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09360039, bytes 7404205163, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:20:29
+Log Message: FCS Error above threshold: 49028
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09410399, bytes 7482098471, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 050827 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09462676, bytes 7483922802, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:21:31
+Log Message: FCS Error above threshold: 49599
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09172323, bytes 7293714037, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 049599 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09223252, bytes 7295959743, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:22:33
+Log Message: FCS Error above threshold: 49581
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09274908, bytes 7374730429, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 049581 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09325871, bytes 7376058972, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:23:34
+Log Message: FCS Error above threshold: 48346
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09367928, bytes 7447697839, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 050133 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09419455, bytes 7451300073, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:24:36
+Log Message: FCS Error above threshold: 48801
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09126798, bytes 7257287532, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 048801 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09176949, bytes 7258551817, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:25:38
+Log Message: FCS Error above threshold: 49491
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09231253, bytes 7341626581, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 049491 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09282092, bytes 7343105107, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:38:47
+Log Message: FCS Error above threshold: 668363
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 0120575681, bytes 95900239220, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0668363 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 0121263251, bytes 95922260432, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:39:48
+Log Message: FCS Error above threshold: 52749
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09231325, bytes 7341013914, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 052749 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09285523, bytes 7345762756, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:40:50
+Log Message: FCS Error above threshold: 51064
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09330664, bytes 7420067366, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 052949 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09385089, bytes 7423346226, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:41:52
+Log Message: FCS Error above threshold: 51544
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09425809, bytes 7500042182, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 053501 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09480728, bytes 7497877814, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:42:53
+Log Message: FCS Error above threshold: 100659
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09131076, bytes 7299356390, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0100659 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09234567, bytes 7303249728, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:43:55
+Log Message: FCS Error above threshold: 143868
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09176735, bytes 7369569416, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0143868 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09324790, bytes 7376313222, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:44:57
+Log Message: FCS Error above threshold: 601964
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08777863, bytes 7426406288, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0624875 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09421768, bytes 7452328455, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:49:56
+Log Message: FCS Error above threshold: 3100104
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 042697447, bytes 36176346636, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 03100104 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 045892560, bytes 36300491028, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:50:58
+Log Message: FCS Error above threshold: 618846
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08691705, bytes 7357855590, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0618846 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09329228, bytes 7378362549, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:52:00
+Log Message: FCS Error above threshold: 591465
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08792829, bytes 7429206659, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0613388 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09425215, bytes 7458136230, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:55:07
+Log Message: FCS Error above threshold: 1863065
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 026793834, bytes 22657679272, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 01885629 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 028738069, bytes 22732919184, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 13:56:08
+Log Message: FCS Error above threshold: 597421
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08584050, bytes 7252419746, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0597421 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09199962, bytes 7276543265, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:00:50
+Log Message: FCS Error above threshold: 2875065
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 040280081, bytes 34106981254, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 02898535 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 043267449, bytes 34226777709, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:01:52
+Log Message: FCS Error above threshold: 626543
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08811836, bytes 7471591492, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0649868 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09481668, bytes 7500206403, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:08:03
+Log Message: FCS Error above threshold: 3608080
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 053217741, bytes 44898653082, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 03608080 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 056936261, bytes 45035404642, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:09:04
+Log Message: FCS Error above threshold: 609471
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08698572, bytes 7371012932, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0633285 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09351214, bytes 7396910939, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:10:06
+Log Message: FCS Error above threshold: 625745
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08778489, bytes 7447981309, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0648238 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09446633, bytes 7473833869, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:12:09
+Log Message: FCS Error above threshold: 1178315
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 017578553, bytes 14833914608, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 01199992 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 018815013, bytes 14880578872, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:13:11
+Log Message: FCS Error above threshold: 576075
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08832743, bytes 7448478104, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0597634 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09448576, bytes 7473201079, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:14:13
+Log Message: FCS Error above threshold: 568248
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08615365, bytes 7255694488, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0568248 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09201130, bytes 7278531172, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:15:39
+Log Message: FCS Error above threshold: 857032
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 012186844, bytes 10302988208, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0857032 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 013070187, bytes 10340614323, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:16:41
+Log Message: FCS Error above threshold: 578199
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08731881, bytes 7372714940, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0599792 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09350092, bytes 7397949496, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:17:43
+Log Message: FCS Error above threshold: 587094
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08810644, bytes 7442824156, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0609632 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09438903, bytes 7463371425, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:18:44
+Log Message: FCS Error above threshold: 599839
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08579887, bytes 7253184607, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0599839 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09197845, bytes 7276027902, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:19:46
+Log Message: FCS Error above threshold: 610344
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08663943, bytes 7326840702, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0610344 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09293147, bytes 7351258050, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:20:48
+Log Message: FCS Error above threshold: 591362
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08755704, bytes 7401138278, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0613666 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09388319, bytes 7426940133, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:21:49
+Log Message: FCS Error above threshold: 600854
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08840209, bytes 7475568999, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0624091 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09483451, bytes 7502095229, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:22:51
+Log Message: FCS Error above threshold: 612470
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08611097, bytes 7285978877, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0612470 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09242352, bytes 7310926730, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:24:29
+Log Message: FCS Error above threshold: 969676
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 013811277, bytes 11675859546, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0969676 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 014810720, bytes 11716538529, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:25:31
+Log Message: FCS Error above threshold: 613241
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08695721, bytes 7352618084, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0613241 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09327659, bytes 7376781915, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:26:33
+Log Message: FCS Error above threshold: 593637
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08784789, bytes 7428652006, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0616044 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09419250, bytes 7449514775, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:28:01
+Log Message: FCS Error above threshold: 874709
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 012698020, bytes 10740431499, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0897468 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 013622970, bytes 10775828096, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:29:03
+Log Message: FCS Error above threshold: 607897
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08607962, bytes 7280060456, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0607897 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09234358, bytes 7303402128, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:30:05
+Log Message: FCS Error above threshold: 606967
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08705100, bytes 7358171932, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0606967 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09330586, bytes 7379688921, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:31:19
+Log Message: FCS Error above threshold: 706103
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 010747097, bytes 9064393578, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0727762 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 011497009, bytes 9093511443, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:32:21
+Log Message: FCS Error above threshold: 579651
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08645277, bytes 7288078123, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0579651 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09242733, bytes 7310124350, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:33:23
+Log Message: FCS Error above threshold: 581296
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 08740124, bytes 7363418310, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0581296 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09339189, bytes 7386980175, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 14:40:11
+Log Message: FCS Error above threshold: 3999118
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 058510058, bytes 49385763917, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 03999118 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 062631662, bytes 49546213596, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 15:33:25
+Log Message: FCS Error above threshold: 44683
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 0492120525, bytes 389311870599, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 047407 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 0492169238, bytes 389309905422, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 15:34:27
+Log Message: FCS Error above threshold: 69998
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09389959, bytes 7485104788, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 072617 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09464691, bytes 7486616997, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 15:35:28
+Log Message: FCS Error above threshold: 70153
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09142665, bytes 7287625779, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 070153 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09214795, bytes 7287075990, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 15:36:30
+Log Message: FCS Error above threshold: 71306
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09243838, bytes 7366630811, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 071306 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09317128, bytes 7371637344, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 15:42:19
+Log Message: FCS Error above threshold: 281942
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 053405550, bytes 42463064519, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 0282144 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 053695581, bytes 42478279092, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 15:43:21
+Log Message: FCS Error above threshold: 5470
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09472865, bytes 7498416847, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 05685 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09478526, bytes 7497041199, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 15:44:23
+Log Message: FCS Error above threshold: 5481
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09221748, bytes 7296712882, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 05481 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09227289, bytes 7297525009, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Event: fcs_error_high Time: 2024-06-13 15:45:24
+Log Message: FCS Error above threshold: 5624
+CLI Output: Interface 1/1  (xe)
+  Hardware is Ethernet  Current HW addr: 0023.aa29.adc0
+  Physical:0023.aa29.adc0
+  index 5001 metric 1 mtu 9216 duplex-full
+  Port Mode is access
+  <UP,BROADCAST,RUNNING,MULTICAST>
+  VRF Binding: Not bound
+  Speed 10000 Loopback is none
+  DHCP client is disabled.
+    input packets 09323357, bytes 7380090786, dropped 00, 
+       multicast packets 00 broadcast packets 00 
+       FCS error 05624 UndersizeErrors 00 OverSizeErrors 00 
+    output packets 09329076, bytes 7378991115, dropped 00, 
+       multicast packets 00 broadcast packets 00
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
