@@ -1,0 +1,557 @@
+import re
+import time
+import threading
+from datetime import datetime
+from collections import defaultdict
+import pandas as pd
+from netmiko import ConnectHandler
+import socketserver
+import pyautogui
+from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestClassifier, VotingClassifier
+from sklearn.exceptions import NotFittedError
+from xgboost import XGBClassifier
+import numpy as np
+
+log_data = []
+network_state = {'link_status': 'up', 'link_event': 0}
+network_state_lock = threading.Lock()
+
+# 최소 데이터 수집 개수 설정
+MIN_DATA_COUNT = 20
+
+# 임계값 설정
+TX_POWER_THRESHOLD = -3.0
+RX_POWER_THRESHOLD = -10.0
+FCS_ERROR_THRESHOLD = 1000
+
+# collected_data 변수 초기화
+collected_data = []
+
+# 모델 학습 및 상태 관리를 위한 전역 변수와 락 객체
+model = None
+model_trained = threading.Event()  # 모델이 학습되었음을 알리는 이벤트 객체
+
+smoothing_predictor = None
+
+class PredictWithSmoothing:
+    def __init__(self, model, alpha=0.8):
+        if not (0 < alpha <= 1):
+            raise ValueError("Alpha should be between 0 and 1.")
+        self.model = model
+        self.alpha = alpha
+        self.prev_prediction = None
+
+    def predict(self, X):
+        proba = self.model.predict_proba(X)
+        if self.prev_prediction is None:
+            self.prev_prediction = proba
+        else:
+            proba = self.alpha * proba + (1 - self.alpha) * self.prev_prediction
+            self.prev_prediction = proba
+        return proba
+
+def connect_device(host):
+    device = {
+        'device_type': 'cisco_ios',
+        'host': host,
+        'username': 'root',
+        'password': 'admin',
+        'port': 22,  # 기본 SSH 포트
+        'secret': 'your_enable_password',  # 필요 시
+    }
+    return ConnectHandler(**device)
+
+def handle_event_and_predict(results, m_box):
+    # 이벤트 트리거 여부 확인
+    event_triggered = check_thresholds_and_trigger_event(results, m_box, interface='1/1')
+    
+    # 이벤트가 트리거되었고 모델이 학습된 경우에만 예측 실행
+    if event_triggered:
+        print("[DEBUG] Starting prediction")
+        try:
+            if model_trained.is_set():
+                prediction = predict_link_down_with_smoothing(results)
+                if prediction is not None:
+                    # 이벤트와 예측 결과를 저장
+                    save_event_and_prediction_to_csv(results, prediction)
+                else:
+                    print("[ERROR] Prediction returned None.")
+            else:
+                print("[ERROR] Model is not trained yet. Skipping prediction.")
+        except NotFittedError as e:
+            print(f"[ERROR] NotFittedError: {e}")
+        except Exception as e:
+            print(f"[ERROR] Unexpected error during prediction: {e}")
+
+def read_cli_and_write_to_csv(m_box):
+    global collected_data, model_trained
+    filename = 'Transcever_info.csv'
+    while True:
+        child = connect_device(m_box)
+        results = gather_transceiver_interface_info(child)
+        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        with network_state_lock:
+            link_event = network_state['link_event']
+            link_status = network_state['link_status']
+        data_to_write = {
+            'Timestamp': timestamp,
+            'Vendor': results['Vendor'],
+            'Part No': results['Part No'],
+            'Tx Power (dBm)': results['Tx Power (dBm)'],
+            'Rx Power (dBm)': results['Rx Power (dBm)'],
+            'FCS Error': results['FCS Error'],
+            'Input Dropped': results['Input Dropped'],
+            'Output Dropped': results['Output Dropped'],
+            'Link Event Count': link_event,
+            'Link Status': link_status
+        }
+        write_to_csv(filename, data_to_write)
+        
+        # 수집된 데이터를 collected_data에 추가
+        collected_data.append(data_to_write)        
+        print("[DEBUG] collected_data: ", len(collected_data), "and trained state", model_trained )
+
+        # 이벤트 발생 시 예측 실행 함수 호출
+        handle_event_and_predict(results, m_box)
+
+        child.disconnect()
+        time.sleep(60)  # 1분 간격으로 실행
+
+def gather_transceiver_interface_info(child):
+    results = defaultdict(lambda: None)
+
+    read_Int_Transceiver = child.send_command("sh interface transceiver 1/1")   
+    read_Interface = child.send_command("sh interface 1/1")      
+    
+    vendor_pattern = r"Vendor\s+:\s+(\w+)"
+    part_no_pattern = r"Part No.\s+:\s+(\w+)"
+    txrx_power_pattern = r"Tx/Rx Pwr\s+:\s+(-?\d{1,2}\.\d) dBm\s*,\s*(-?\d{1,2}\.\d) dBm"       
+    fcs_pattern = r"FCS error\s+(\d+)"
+    input_dropped_pattern = r"input packets.*?dropped\s+(\d+)"
+    output_dropped_pattern = r"output packets.*?dropped\s+(\d+)"
+
+    vender_match = re.search(vendor_pattern, read_Int_Transceiver)
+    part_no_match = re.search(part_no_pattern, read_Int_Transceiver)
+    txrx_power_match = re.search(txrx_power_pattern, read_Int_Transceiver)
+    fcs_error_match = re.search(fcs_pattern, read_Interface)
+    input_dropped_match = re.search(input_dropped_pattern, read_Interface)
+    output_dropped_match = re.search(output_dropped_pattern, read_Interface)
+
+    results['Vendor'] = vender_match.group(1) if vender_match else None
+    results['Part No'] = part_no_match.group(1) if part_no_match else None
+    if txrx_power_match:
+        results['Tx Power (dBm)'] = float(txrx_power_match.group(1))
+        results['Rx Power (dBm)'] = float(txrx_power_match.group(2))
+    else:
+        results['Tx Power (dBm)'] = None
+        results['Rx Power (dBm)'] = None
+    results['FCS Error'] = int(fcs_error_match.group(1)) if fcs_error_match else None
+    results['Input Dropped'] = int(input_dropped_match.group(1)) if input_dropped_match else None
+    results['Output Dropped'] = int(output_dropped_match.group(1)) if output_dropped_match else None
+    
+    return results
+
+def check_thresholds_and_trigger_event(results, dev_ip_addr, interface):
+    event_triggered = False
+    if results['Tx Power (dBm)'] is not None and results['Tx Power (dBm)'] < TX_POWER_THRESHOLD:
+        handle_event('tx_power_low', f'Tx Power below threshold: {results["Tx Power (dBm)"]} dBm', dev_ip_addr, interface)
+        event_triggered = True
+    if results['Rx Power (dBm)'] is not None and results['Rx Power (dBm)'] < RX_POWER_THRESHOLD:
+        handle_event('rx_power_low', f'Rx Power below threshold: {results["Rx Power (dBm)"]} dBm', dev_ip_addr, interface)
+        event_triggered = True
+    if results['FCS Error'] is not None and results['FCS Error'] > FCS_ERROR_THRESHOLD:
+        handle_event('fcs_error_high', f'FCS Error above threshold: {results["FCS Error"]}', dev_ip_addr, interface)
+        event_triggered = True
+    return event_triggered
+
+def write_to_csv(filename, data):
+    df = pd.DataFrame([data])
+    df.to_csv(filename, mode='a', header=not pd.io.common.file_exists(filename), index=False)
+
+    # CSV 파일로 저장된 후 network_state['link_event'] 초기화
+    with network_state_lock:
+        network_state['link_event'] = 0
+
+def execute_cli_command(child, commands, cmd_type):
+    try:
+        outputs = []
+        if commands:
+            if cmd_type == "get":
+                for command in commands:
+                    output = child.send_command(command)
+                    outputs.append(output)
+            elif cmd_type == "set":
+                child.enable()
+                output = child.send_config_set(commands)
+                outputs.append(output)
+            return outputs
+    except Exception as e:
+        print(f"Error executing CLI command: {e}")
+        return None
+
+def handle_event(event_type, message, dev_ip_addr, interface=None):
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    file_base_name = f"{event_type}"
+    
+    get_commands = []
+    set_commands = []
+    child = connect_device(dev_ip_addr)
+    if event_type == 'link_up':
+        print(f"[EVENT] Link Up detected on interface {interface}, executing CLI command.")
+        with network_state_lock:
+            network_state['link_status'] = 'up'
+        get_commands = [
+            f'show interface status {interface}',
+            f'show interface {interface}'
+        ]
+        set_commands = []
+
+    elif event_type == 'link_down':
+        print(f"[EVENT] Link Down detected on interface {interface}")
+        with network_state_lock:
+            network_state['link_status'] = 'down'
+            network_state['link_event'] += 1
+        get_commands = [f'show interface status {interface}']
+        set_commands = []
+    
+    elif event_type in ['tx_power_low', 'rx_power_low']:
+        print(f"[EVENT] {event_type.replace('_', ' ').title()} detected")
+        get_commands = [
+            f'show interface transceiver {interface}'
+        ]
+        set_commands = []
+
+    elif event_type in ['fcs_error_high']:
+        print(f"[EVENT] {event_type.replace('_', ' ').title()} detected")
+        get_commands = [
+            f'show interface {interface}',
+            f'clear counters interface {interface}'
+        ]
+        set_commands = [] # executing CLI command.
+
+    else:
+        print("Unhandled event type.")
+        return
+
+    get_outputs = execute_cli_command(child, get_commands, "get")
+    set_outputs = execute_cli_command(child, set_commands, "set")
+    child.disconnect()
+
+    get_outputs = get_outputs if get_outputs is not None else []
+    set_outputs = set_outputs if set_outputs is not None else []
+
+    combined_output = ("\n" + "-" * 70 + "\n").join(get_outputs + set_outputs) if get_outputs or set_outputs else None
+    print("[INFO]", combined_output)
+    save_log_to_text_file(file_base_name, event_type, message, combined_output)
+
+def save_log_to_text_file(file_base_name, event_type, message, output):
+    try:
+        with open(f'{file_base_name}.txt', 'a') as txt_file:
+            txt_file.write(f"Event: {event_type} ")
+            txt_file.write(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            txt_file.write(f"Log Message: {message}\n")
+            txt_file.write(f"CLI Output: {output}\n")
+            txt_file.write("-" * 70 + "\n") 
+        print(f"Log saved to {file_base_name}.txt")
+    except Exception as e:
+        print(f"Error saving log to text file: {e}")
+
+def save_syslogs_to_csv(valid_logs):
+    if valid_logs:
+        df = pd.DataFrame(valid_logs)
+        df = df.apply(lambda row: preprocess_log(row['raw_message']), axis=1, result_type='expand')
+
+        # Add "'" to process column to display interface number correctly 
+        if 'process' in df.columns:
+            df['process'] = df['process'].apply(lambda x: f"'{x}" if pd.notna(x) else x)
+
+        df.to_csv('syslog_data.csv', mode='a', header=False, index=False)
+        print("Logs saved to syslog_data.csv")
+
+def preprocess_log_and_save_syslogs_to_csv():
+    global log_data
+    while True:
+        if log_data:
+            valid_logs = [log for log in log_data if preprocess_log(log['raw_message']) is not None]
+            # Save Syslog to csv file 
+            # save_syslogs_to_csv(valid_logs)
+            log_data = []
+        time.sleep(300)  # 5분 간격으로 실행
+
+def preprocess_log(log):
+    try:
+        if log.startswith('<'):
+            pri_end_idx = log.index('>') + 1
+            pri = log[:pri_end_idx]
+            log = log[pri_end_idx:].strip()
+        else:
+            pri = None
+        parts = log.split(maxsplit=5)
+
+        if len(parts) >= 6 and '-' in parts[0] and ':' in parts[1]:
+            timestamp = f"{parts[0]} {parts[1]}"
+            timestamp = datetime.strptime(timestamp, "%Y-%m-%d %H:%M:%S")
+            host = parts[3]
+            process = parts[4]
+            message = parts[5]
+            return {
+                "pri": pri,
+                "timestamp": timestamp,
+                "host": host,
+                "process": process,
+                "message": message
+            }
+        else:
+            print(f"Skipping log due to unrecognized format: {log}")
+            return None
+
+    except Exception as e:
+        print(f"Error processing log: {e}")
+        return None
+
+def classify_syslog_event(message):
+    interface = None
+
+    if 'interface is up' in message.lower():
+        event_type = 'link_up'
+        interface = extract_interface(message)
+    elif 'interface is down' in message.lower():
+        event_type = 'link_down'
+        interface = extract_interface(message)
+    else:
+        event_type = None
+
+    return event_type, interface
+
+def extract_interface(message):
+    processed_log = preprocess_log(message)
+    if processed_log is not None:
+        process_value = processed_log.get("process")
+        return process_value
+    return None
+
+# CLassify EVENT TYPE Form Syslog 
+def process_syslog_message(message, client_address):
+    event_type, interface = classify_syslog_event(message)
+    if event_type:
+        dev_ip_addr = client_address
+        handle_event(event_type, message, dev_ip_addr, interface)
+    else:
+        return None
+
+class SyslogUDPHandler(socketserver.BaseRequestHandler):
+    def handle(self):
+        # Receive Syslog Message and extract sender ip address
+        data, socket = self.request
+        message = data.strip().decode('utf-8')
+        print(f"Received syslog from {self.client_address[0]}: {message}")
+        log_data.append({'raw_message': message})
+
+        # Handle the syslog message
+        process_syslog_message(message, self.client_address[0])
+        
+def create_train_data_and_train_model(data):
+    global model, smoothing_predictor
+    if len(data) >= MIN_DATA_COUNT:
+        df = pd.DataFrame(data)
+        features = df[['Tx Power (dBm)', 'Rx Power (dBm)', 'FCS Error']].values
+        target = (df['Link Status'] == 'down').astype(int).values  # 링크 다운 여부를 0 또는 1로 변환
+
+        if len(np.unique(target)) < 2:
+            print("[ERROR] Training data does not contain both classes.")
+            return False
+
+        # RandomForest 하이퍼파라미터 튜닝
+        rf_params = {
+            'n_estimators': [100, 200],
+            'max_depth': [10, 20],
+            'min_samples_split': [2, 5],
+            'min_samples_leaf': [1, 2],
+            'bootstrap': [True, False]
+        }
+        rf_grid = GridSearchCV(RandomForestClassifier(), rf_params, cv=5, n_jobs=-1, verbose=2)
+        rf_grid.fit(features, target)
+        best_rf = rf_grid.best_estimator_
+
+        # XGBoost 모델
+        xgb_model = XGBClassifier(use_label_encoder=False, eval_metric='mlogloss')
+
+        # VotingClassifier를 사용한 앙상블 모델
+        model = VotingClassifier(estimators=[
+            ('rf', best_rf),
+            ('xgb', xgb_model)
+        ], voting='soft')
+        model.fit(features, target)
+
+        print("[DEBUG] Training model with data:", data)
+        model_trained.set()  # 모델이 학습되었음을 알림
+        smoothing_predictor = PredictWithSmoothing(model)  # 모델 학습 후 smoothing_predictor 초기화
+        
+        # 학습 데이터를 CSV 파일로 저장
+        df.to_csv('training_data.csv', index=False)
+        print("Training data saved to training_data.csv")    
+                
+        return True
+    else:
+        print("[DEBUG] Not enough data to train. Current data count:", len(data))
+        return False
+
+ 
+# 기존 학습 데이터를 사용하여 학습하기, model_trained = True 인 경우 실행.
+def load_training_data():
+    global model, smoothing_predictor
+    try:
+        df = pd.read_csv('training_data.csv')
+        features = df[['Tx Power (dBm)', 'Rx Power (dBm)', 'FCS Error']].values
+        target = (df['Link Status'] == 'down').astype(int).values
+
+        if len(np.unique(target)) < 2:
+            print("[ERROR] Loaded training data does not contain both classes.")
+            return False
+
+        # # RandomForest 하이퍼파라미터 튜닝
+        # rf_params = {
+        #     'n_estimators': [100, 200],
+        #     'max_depth': [10, 20],
+        #     'min_samples_split': [2, 5],
+        #     'min_samples_leaf': [1, 2],
+        #     'bootstrap': [True, False]
+        # }
+        rf_params = {
+            'n_estimators': [10, 50],
+            'max_depth': [5, 10],
+            'min_samples_split': [2, 4],
+            'min_samples_leaf': [1, 2],
+            'bootstrap': [True]
+        }
+        rf_grid = GridSearchCV(RandomForestClassifier(), rf_params, cv=5, n_jobs=-1, verbose=2)
+        rf_grid.fit(features, target)
+        best_rf = rf_grid.best_estimator_
+        # 최적의 하이퍼파라미터 출력
+        print("Best hyperparameters: ", rf_grid.best_params_)
+
+        # XGBoost 모델
+        xgb_model = XGBClassifier(use_label_encoder=False, eval_metric='mlogloss')
+
+        # VotingClassifier를 사용한 앙상블 모델
+        model = VotingClassifier(estimators=[
+            ('rf', best_rf),
+            ('xgb', xgb_model)
+        ], voting='soft')
+        model.fit(features, target)
+
+        print("[DEBUG] Loaded training data and trained model.")
+        model_trained.set()  # 모델이 학습되었음을 알림
+        smoothing_predictor = PredictWithSmoothing(model)  # 모델 학습 후 smoothing_predictor 초기화
+        return True
+    except Exception as e:
+        print(f"[ERROR] Failed to load training data: {e}")
+        return False
+    
+def predict_link_down_with_smoothing(results):
+    global model
+
+    # None 값이 있는지 확인
+    if None in [results['Tx Power (dBm)'], results['Rx Power (dBm)'], results['FCS Error']]:
+        print("[ERROR] One or more features are None. Skipping prediction.")
+        return None
+
+    features = np.array([[results['Tx Power (dBm)'], results['Rx Power (dBm)'], results['FCS Error']]])
+    
+    try:
+        proba = smoothing_predictor.predict(features)
+        print("[DEBUG_PREDICTED_RESULT] Predicted probabilities:", proba)
+
+        if proba.shape[1] > 1:
+            prediction = proba[0, 1]  # 링크 다운 확률
+            print(f"[DEBUG] Prediction: {prediction:.2f}%")
+        else:
+            print("[ERROR] The model did not return probabilities for two classes.")
+            prediction = None
+    except NotFittedError as e:
+        print("[ERROR] NotFittedError:", e)
+        prediction = None
+    except IndexError as e:
+        print("[ERROR] IndexError:", e)
+        prediction = None
+
+    if prediction is not None:
+        prediction_percentage = prediction * 100
+        stay_up_percentage = (1 - prediction) * 100
+        print(f"[DEBUG] Prediction: {prediction_percentage:.2f}%")
+        if prediction > 0.5:  # 임계값 설정
+            print(f"[PREDICT] Warning: High probability of link down ({prediction_percentage:.2f}%)")
+        else:
+            print(f"[PREDICT] Link is likely to stay up ({stay_up_percentage:.2f}%)")
+        
+        return prediction
+
+    return None  # 예측 실패 시 None 반환
+
+def save_event_and_prediction_to_csv(results, prediction):
+    filename = 'Event_and_Prediction.csv'
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    
+    # 예측 결과를 %로 변환
+    prediction_percentage = round(prediction * 100, 2)
+    
+    data_to_write = {
+        'Timestamp': timestamp,
+        'Vendor': results['Vendor'],
+        'Part No': results['Part No'],
+        'Tx Power (dBm)': results['Tx Power (dBm)'],
+        'Rx Power (dBm)': results['Rx Power (dBm)'],
+        'FCS Error': results['FCS Error'],
+        'Input Dropped': results['Input Dropped'],
+        'Output Dropped': results['Output Dropped'],
+        'Prediction (%)': prediction_percentage
+    }
+    
+    df = pd.DataFrame([data_to_write])
+    df.to_csv(filename, mode='a', header=not pd.io.common.file_exists(filename), index=False)
+    print(f"[INFO] Event and prediction saved to {filename}")
+
+
+def collect_and_train():
+    global collected_data
+    while True:
+        print("[DEBUG] Checking collected_data")
+        if collected_data and not model_trained.is_set():
+            # 데이터가 충분할 때만 훈련
+            if create_train_data_and_train_model(collected_data):
+                collected_data = []  # 훈련 후 데이터 초기화
+                print("[DEBUG_JANG] The training is completed")
+        time.sleep(600)  # 10분 간격으로 학습
+
+if __name__ == "__main__":
+    PORT = 514
+    HOST = "192.168.0.157"
+    # HOST = pyautogui.prompt("ENTER THE IP ADDRESS: ", 'START AUTOMATION SERVER', default='127.0.0.1')
+
+    # 로그 전처리 및 CSV 파일로 저장
+    threading.Thread(target=preprocess_log_and_save_syslogs_to_csv, daemon=True).start()
+
+    # CLI를 통해 Interface 및 Transceiver 정보 수집
+    m_box_ip = "192.168.0.201"
+    time.sleep(60)  # 1분 후 실행
+    threading.Thread(target=read_cli_and_write_to_csv, args=(m_box_ip,), daemon=True).start()
+
+    # Interface, Transceiver 및 Syslog Link Up/Down 정보를 바탕으로 모델 학습 시작, model_trained = False인 경우 실행. 
+    threading.Thread(target=collect_and_train, daemon=True).start()
+
+    # 기존 학습 데이터 불러오기 model_trained = True 인경우 실행
+    if not load_training_data():
+        print("[ERROR] Failed to load training data. Exiting...")
+        exit(1)
+
+    try:
+        # Syslog Server 시작 및 로그 데이터 수집 및 저장(log_data[])
+        # Event Procession 예시: Link Up/Down
+        with socketserver.UDPServer((HOST, PORT), SyslogUDPHandler) as server:
+            print(f"Syslog server started on {HOST}:{PORT}")
+            server.serve_forever()
+    except KeyboardInterrupt:
+        print("\nServer is shutting down gracefully.")
+    except Exception as e:
+        print(f"Error: {e}")
